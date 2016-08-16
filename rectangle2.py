@@ -22,7 +22,7 @@ def draw_circle(event,x,y,flags,param):
         drawing = True
         ix,iy = x,y
         tankstart = np.array([x,y])
-        np.savetxt('mydata.csv',tankstart)
+        np.savetxt('mydata'+ name[0] + '.csv',tankstart)
         print tankstart
         print "TANK edge START position shown above (upper left)"
 
@@ -35,7 +35,7 @@ def draw_circle(event,x,y,flags,param):
         cv2.rectangle(img,(ix,iy),(x,y),(100,0,100),5) #purple
         tankend = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, tankend)
         f_handle.close()
         print tankend
@@ -50,7 +50,7 @@ def draw_circle2(event,x,y,flags,param):
         ix,iy = x,y
         topmirrorstart = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, topmirrorstart)
         f_handle.close()
 
@@ -67,7 +67,7 @@ def draw_circle2(event,x,y,flags,param):
         cv2.rectangle(img,(ix,iy),(x,y),(255,255,0),5) #lightblue
         topmirrorend = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, topmirrorend)
         f_handle.close()
 
@@ -83,7 +83,7 @@ def draw_circle3(event,x,y,flags,param):
         ix,iy = x,y
         bottommirrorstart = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, bottommirrorstart)
         f_handle.close()
 
@@ -100,7 +100,7 @@ def draw_circle3(event,x,y,flags,param):
         cv2.rectangle(img,(ix,iy),(x,y),(255,255,140),5) #lightblue
         bottommirrorend = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, bottommirrorend)
         f_handle.close()
 
@@ -116,7 +116,7 @@ def draw_circle4(event,x,y,flags,param):
         ix,iy = x,y
         leftscreenstart = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, leftscreenstart)
         f_handle.close()
 
@@ -133,7 +133,7 @@ def draw_circle4(event,x,y,flags,param):
         cv2.rectangle(img,(ix,iy),(x,y),(0,0,255),5) #red
         leftscreenend = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, leftscreenend)
         f_handle.close()
 
@@ -149,7 +149,7 @@ def draw_circle5(event,x,y,flags,param):
         ix,iy = x,y
         rightscreenstart = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, rightscreenstart)
         f_handle.close()
 
@@ -166,7 +166,7 @@ def draw_circle5(event,x,y,flags,param):
         cv2.rectangle(img,(ix,iy),(x,y),(0,60,255),5) #red
         rightscreenend = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, rightscreenend)
         f_handle.close()
 
@@ -182,7 +182,7 @@ def draw_circle6(event,x,y,flags,param):
         ix,iy = x,y
         topthigmostart = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, topthigmostart)
         f_handle.close()
 
@@ -199,7 +199,7 @@ def draw_circle6(event,x,y,flags,param):
         cv2.rectangle(img,(ix,iy),(x,y),(0,255,0),5) #peach
         topthigmoend = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, topthigmoend)
         f_handle.close()
 
@@ -215,7 +215,7 @@ def draw_circle7(event,x,y,flags,param):
         ix,iy = x,y
         bottomthigmostart = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, bottomthigmostart)
         f_handle.close()
 
@@ -232,7 +232,7 @@ def draw_circle7(event,x,y,flags,param):
         cv2.rectangle(img,(ix,iy),(x,y),(100,255,0),5) #peach
         bottomthigmoend = np.array([x,y])
 
-        f_handle = file('mydata.csv', 'a')
+        f_handle = file('mydata'+ name[0] + '.csv', 'a')
         np.savetxt(f_handle, bottomthigmoend)
         f_handle.close()
 
@@ -243,8 +243,11 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("-b", "--inputbackgroundImage", help="path to background image associated with video, which will be used to display the drawn boxes")
     args = vars(ap.parse_args())
-    img = args["inputbackgroundImage"]
-    img = cv2.imread(img, cv2.IMREAD_COLOR)
+    imgname = args["inputbackgroundImage"]
+    name = str.split(imgname, ".")
+    print name[0]
+    print imgname
+    img = cv2.imread(imgname, cv2.IMREAD_COLOR)
     #img = np.zeros((512,512,3), np.uint8)
     cv2.namedWindow('img')
 
