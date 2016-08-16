@@ -1,0 +1,20 @@
+cd /home/ian/Desktop/kellynumerosityanalysis/scripts
+
+python kellyTracker.py -i gambusia_3_328_female_Harlow_8_2_5_10_50_right_R.mkv -n gambusia_3_328_female_Harlow_8_2_5_10_50_right_R -f 25
+
+python reinterpolateflipv2.py -t gambusia_3_328_female_Harlow_8_2_5_10_50_right_R.csv
+
+python rectangle2.py -b gambusia_3_328_female_Harlow_8_2_5_10_50_right_R_background.jpg
+
+---------
+PRESS ESC after you draw a box!!!!
+tankedge
+topmirror
+bottommirror
+leftscreen
+rightscreen
+topthigmo
+bottomthigmo
+-----------------
+
+python determinezone.py -f updated_gambusia_3_328_female_Harlow_8_2_5_10_50_right_R.csv -c mydata.csv
