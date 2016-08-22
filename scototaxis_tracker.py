@@ -15,10 +15,9 @@ def increase_brightness(frame):
     frame[frame > 255] = 255
     return frame
 
-def increase_contrast(frame):
-    # new_image = (maxIntensity/phi)*(frame/(maxIntensity/theta))**0.5
-    # new_image = np.array(new_image,dtype=uint8)
-    x = np.multiply(frame,np.full(img.shape, 1.4))
+# 1.4 is a good place to start for amount
+def increase_contrast(frame, amount):
+    x = np.multiply(frame,np.full(img.shape, amount))
     x = x.astype(np.uint8)
     x = np.clip(x, 0, 255)
     return x
